@@ -96,11 +96,11 @@ For this project the following technologies were used:
 
 ### Project architecture
 
-The end-to-end data pipeline includes the next steps:
-- Fetching, selecting and uploading of the initial dataset to a Data Lake (Bucket);
-- Getting, pre-processing and uploading the data from the Data Lake to a Data Warehouse;
-- Transforming the data in the Data Warehouse and preparing it for the dashboard;
-- Creating the final  dashboard.
+The end-to-end data pipeline includes the following steps:
+- Fetch, select and upload the initial dataset to a Data Lake (Bucket);
+- Get, pre-process and upload the data from the Data Lake to a Data Warehouse;
+- Transform the data in the Data Warehouse and preparing it for the dashboard;
+- Create the final dashboard.
 
 The diagram below contains detailed information:
 ![](images/project_architecture.png)
@@ -113,3 +113,28 @@ The diagram below contains detailed information:
 ## Conclusions
 
 ## Reproducibility 
+You may replicate the project pipeline by following the steps in this tutorial.
+
+### Google Cloud Platform
+You need to have a GCP account. If you don't have one yet, you can create and use a free trial. After creating an account:
+1. Setup new project and give it an unique Project ID.
+2. Configure service account to get access to this project. 
+Go to IAM & Admin > Service Accounts > Click on + CREATE SERVICE ACCOUNT > Give a name and an service account ID > Grant this service account access to project, namely as:
+  - Viewer
+  - Storage Admin
+  - Storage Object Admin
+  - BigQuery Admin
+After the service account is created go to Actions > Manage Keys > ADD KEY > Create new key > Save it as .json file
+3. For the local setup of GCP download [SDK](https://cloud.google.com/sdk)
+4. Set environment variable to your downloaded GCP key:
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS="<path/to/your/service-account-authkeys>.json"
+gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
+```
+5. Enable the following options under the APIs and services section:
+  - [Identity and Access Management (IAM) API](https://console.cloud.google.com/apis/library/iam.googleapis.com)
+  - [IAM service account credentials API](https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com)
+  - [Compute Engine API](https://console.developers.google.com/apis/api/compute.googleapis.com)
+  - [Cloud Run Admin API](https://console.cloud.google.com/apis/library/run.googleapis.com)
+  - [Artifact Registry API](https://console.cloud.google.com/apis/library/artifactregistry.googleapis.com)
+  
