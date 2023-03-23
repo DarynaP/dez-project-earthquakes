@@ -43,8 +43,8 @@ Earthquake data is a valuable resource for public safety, and this project aims 
 The data of was collected using [EveryEarthquake API](https://rapidapi.com/dbarkman/api/everyearthquake/), additionally the data obtained between January and April 2023 can be found in the folder `earthquake-data` as parquet files (per week).
 To use this API you need to have a **X-RapidAPI-Key**, to obtain your key you first need to create an account, more information can be obtained [here](https://docs.rapidapi.com/docs/keys).
 
-The data fetched directly from *EveryEarthquake API* had unnecessary information that was removed during Prefect flow to fetch data `api_to_gcs.py`, additionally, the dataset needed some initial cleaning that was taken care during the second Prefect flow to load data into Big Query `gcs_to_bq.py`. 
-For mode information check the notebook `api_data_exploration.ipynb` or the folder `prefect/flows`.
+The data fetched directly from *EveryEarthquake API* had unnecessary information that was removed during Prefect flow to fetch data [`api_to_gcs.py`](prefect/flows), additionally, the dataset needed some initial cleaning that was taken care during the second Prefect flow to load data into Big Query [`gcs_to_bq.py`](prefect/flows). 
+For mode information check the notebook [`api_data_exploration.ipynb`](api_data_exploration.ipynb).
 The complete information about the dataset can be found at [ANSS Comprehensive Earthquake Catalog](https://earthquake.usgs.gov/data/comcat).
 
 The final dataset loaded to Big Query contain the following information:
@@ -124,6 +124,7 @@ Go to IAM & Admin > Service Accounts > Click on + CREATE SERVICE ACCOUNT > Give 
   - Storage Admin
   - Storage Object Admin
   - BigQuery Admin
+
 After the service account is created go to Actions > Manage Keys > ADD KEY > Create new key > Save it as .json file
 3. For the local setup of GCP download [SDK](https://cloud.google.com/sdk)
 4. Set environment variable to your downloaded GCP key:
@@ -138,3 +139,6 @@ gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
   - [Cloud Run Admin API](https://console.cloud.google.com/apis/library/run.googleapis.com)
   - [Artifact Registry API](https://console.cloud.google.com/apis/library/artifactregistry.googleapis.com)
   
+For more information you can follow this [tutorial](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3&ab_channel=DataTalksClub%E2%AC%9B)
+
+### Terraform 
