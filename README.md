@@ -40,7 +40,7 @@ Earthquake data is a valuable resource for public safety, and this project aims 
 
 
 ### Dataset used
-The data of was collected using [EveryEarthquake API](https://rapidapi.com/dbarkman/api/everyearthquake/), additionally the data obtained between January and April 2023 can be found in the folder `earthquake-data` as parquet files (per week).
+The data of was collected using [EveryEarthquake API](https://rapidapi.com/dbarkman/api/everyearthquake/), additionally the data obtained between January and April 2023 can be found in the folder [`earthquake-data`](earthquake-data) as parquet files (per week).
 To use this API you need to have a **X-RapidAPI-Key**, to obtain your key you first need to create an account, more information can be obtained [here](https://docs.rapidapi.com/docs/keys).
 
 The data fetched directly from *EveryEarthquake API* had unnecessary information that was removed during Prefect flow to fetch data [`api_to_gcs.py`](prefect/flows), additionally, the dataset needed some initial cleaning that was taken care during the second Prefect flow to load data into Big Query [`gcs_to_bq.py`](prefect/flows). 
