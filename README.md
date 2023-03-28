@@ -40,11 +40,9 @@ Earthquake data is a valuable resource for public safety, and this project aims 
 
 
 ### Dataset used
-The data of was collected using [EveryEarthquake API](https://rapidapi.com/dbarkman/api/everyearthquake/), additionally the data obtained between January and April 2023 can be found in the folder [`earthquake-data`](earthquake-data) as parquet files (per week).
+The data of was collected using [EveryEarthquake API](https://rapidapi.com/dbarkman/api/everyearthquake/), additionally the data obtained between January and April 2023 can be found in the folder [`earthquake-data`](earthquake-data/files) as parquet files (per week).
 To use this API you need to have a **X-RapidAPI-Key**, to obtain your key you first need to create an account, more information can be obtained [here](https://docs.rapidapi.com/docs/keys).
 
-The data fetched directly from *EveryEarthquake API* had unnecessary information that was removed during Prefect flow to fetch data [`api_to_gcs.py`](prefect/flows), additionally, the dataset needed some initial cleaning that was taken care during the second Prefect flow to load data into Big Query [`gcs_to_bq.py`](prefect/flows). 
-For mode information check the notebook [`api_data_exploration.ipynb`](api_data_exploration.ipynb).
 The complete information about the dataset can be found at [ANSS Comprehensive Earthquake Catalog](https://earthquake.usgs.gov/data/comcat).
 
 The final dataset loaded to Big Query contain the following information:
@@ -81,7 +79,6 @@ The final dataset loaded to Big Query contain the following information:
 ### Technologies
 For this project the following technologies were used:
 <br>
-
 - Google Cloud Platform (GCP)
     - Data Lake: [*Google Cloud Storage*](https://cloud.google.com/storage)
     - Data Warehouse: [*BigQuery*](https://cloud.google.com/bigquery)
@@ -125,13 +122,16 @@ Go to IAM & Admin > Service Accounts > Click on + CREATE SERVICE ACCOUNT > Give 
   - Storage Object Admin
   - BigQuery Admin
 
-After the service account is created go to Actions > Manage Keys > ADD KEY > Create new key > Save it as .json file
+After the service account is created go to Actions > Manage Keys > ADD KEY > Create new key > Save it as JSON file
+<br>
 3. For the local setup of GCP download [SDK](https://cloud.google.com/sdk)
+<br>
 4. Set environment variable to your downloaded GCP key:
 ```bash
 export GOOGLE_APPLICATION_CREDENTIALS="<path/to/your/service-account-authkeys>.json"
 gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 ```
+<br>
 5. Enable the following options under the APIs and services section:
   - [Identity and Access Management (IAM) API](https://console.cloud.google.com/apis/library/iam.googleapis.com)
   - [IAM service account credentials API](https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com)
@@ -142,3 +142,22 @@ gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 For more information you can follow this [tutorial](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3&ab_channel=DataTalksClub%E2%AC%9B)
 
 ### Terraform 
+We will use Terraform to build and manage GCP infrastructure. Terraform configuration files are located in the [terraform folder](terraform),
+Tou can find there the following files:
+- [variables.tf](terraform/variables.tf) - contains variables to make your configuration more reproducible;
+- [main.tf](terraform/main.tf) - is a key configuration file consisting of several sections;
+- [table1_schema.json](terraform/table1_schema.json) - contain the JSON schema for the Data Warehouse table.
+
+> **Important** if you want to change the names of project, bucket, dataset ..., don't forget to replace them in the files!
+
+You can find the detailed explanation [here](terraform)
+
+Now you can use the steps below to generate resources inside the GCP:
+1. Move to the [terraform folder](terraform) using bash command `cd`.
+2. Run `terraform init` command to initialize the configuration.
+3. Use `terraform plan` to match previews local changes against a remote state.  
+4. Apply changes to the cloud with `terraform apply` command, you will need to write `yes` to confirm that you want to proceed with this task.
+
+
+> 
+If you would like to remove your stack from the Cloud, use the `terraform destroy` command.

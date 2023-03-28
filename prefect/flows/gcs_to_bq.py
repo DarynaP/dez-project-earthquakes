@@ -59,7 +59,7 @@ def write_bq(df: pd.DataFrame) -> int:
     gcp_credentials_block = GcpCredentials.load("dez-gcp-creds")
 
     df.to_gbq(
-        destination_table="bq_earthquake_data.earthquake_info",
+        destination_table="dez-project-earthquakes.bq_earthquake_data.earthquake_info",
         project_id="dez-project-earthquakes",
         credentials=gcp_credentials_block.get_credentials_from_service_account(),
         chunksize=5000,
