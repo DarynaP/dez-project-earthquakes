@@ -1,8 +1,8 @@
 ## Terraform 
 Terraform was used to build and manage GCP infrastructure. Here you can find the following files:
-- [variables.tf](terraform/variables.tf) - contains variables to make your configuration more reproducible;
-- [main.tf](terraform/main.tf) - is a key configuration file consisting of several sections;
-- [table1_schema.json](terraform/table1_schema.json) - contain the JSON schema for the Data Warehouse table.
+- [variables.tf](variables.tf) - contains variables to make your configuration more reproducible;
+- [main.tf](main.tf) - is a key configuration file consisting of several sections;
+- [earthquake_info_schema.json](earthquake_info_schema.json) - contain the JSON schema for the Data Warehouse table.
 
 
 ### `variables.tf`
@@ -23,7 +23,7 @@ This file was used to set:
  - Data Warehouse: 
         - BigQuery dataset `bq_earthquake_data`:
          - table `earthquake_info` (used to load data from the bucket `earthquake-data-dez`)
-                - the schema for this table is specified in the [JSON file](terraform/earthquake_info_schema.json)
+                - the schema for this table is specified in the [JSON file](earthquake_info_schema.json)
                 - data loaded in this table is **partitioned** by day, and **clustered** by continent and week
         - BigQuery dataset `dbt_earthquake` (where will be located the tables with data transformed by dbt)
 
