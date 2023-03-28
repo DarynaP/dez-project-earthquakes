@@ -133,24 +133,24 @@ gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 ```
 <br>
 5. Enable the following options under the APIs and services section:
-  - [Identity and Access Management (IAM) API](https://console.cloud.google.com/apis/library/iam.googleapis.com)
+
+  - [Identity and Access Management (IAM) API](https://console.cloud.google.com/apis/library/iam.googleapis.com) 
   - [IAM service account credentials API](https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com)
   - [Compute Engine API](https://console.developers.google.com/apis/api/compute.googleapis.com)
   - [Cloud Run Admin API](https://console.cloud.google.com/apis/library/run.googleapis.com)
   - [Artifact Registry API](https://console.cloud.google.com/apis/library/artifactregistry.googleapis.com)
+
   
 For more information you can follow this [tutorial](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3&ab_channel=DataTalksClub%E2%AC%9B)
 
 ### Terraform 
-We will use Terraform to build and manage GCP infrastructure. Terraform configuration files are located in the [terraform folder](terraform),
-Tou can find there the following files:
+We will use Terraform to build and manage GCP infrastructure. Terraform configuration files are located in the [terraform folder](terraform), there you can find the detailed information about the files:
 - [variables.tf](terraform/variables.tf) - contains variables to make your configuration more reproducible;
 - [main.tf](terraform/main.tf) - is a key configuration file consisting of several sections;
 - [table1_schema.json](terraform/table1_schema.json) - contain the JSON schema for the Data Warehouse table.
 
-> **Important** if you want to change the names of project, bucket, dataset ..., don't forget to replace them in the files!
+> **Important** if you want to change the names of *project, bucket, dataset ...*, don't forget to replace them in the files!
 
-You can find the detailed explanation [here](terraform)
 
 Now you can use the steps below to generate resources inside the GCP:
 1. Move to the [terraform folder](terraform) using bash command `cd`.
@@ -158,6 +158,4 @@ Now you can use the steps below to generate resources inside the GCP:
 3. Use `terraform plan` to match previews local changes against a remote state.  
 4. Apply changes to the cloud with `terraform apply` command, you will need to write `yes` to confirm that you want to proceed with this task.
 
-
-> 
-If you would like to remove your stack from the Cloud, use the `terraform destroy` command.
+> To remove your stack from the Cloud, use the `terraform destroy` command.
