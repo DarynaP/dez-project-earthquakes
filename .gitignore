@@ -167,6 +167,5 @@ terraform.rc
 #File with my service account credentials
 dez-project-earthquakes-791c1355c759.json
 
-#To avoid loading of notebooks
-*.ipynb
+
 
