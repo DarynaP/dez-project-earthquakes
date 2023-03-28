@@ -28,6 +28,6 @@ This file was used to set:
         - BigQuery dataset `dbt_earthquake` (where will be located the tables with data transformed by dbt)
 
     BigQuery should look like this:
-    <img src="dez-project-earthquakes/tree/main/images/bigquery_schema.png" height="100">
+    <img src="dez-project-earthquakes/images/bigquery_schema.png" height="100">
 
 > For more information check [instructions](https://github.com/DarynaP/dez-project-earthquakes#terraform)
