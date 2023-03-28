@@ -27,4 +27,7 @@ This file was used to set:
                 - data loaded in this table is **partitioned** by day, and **clustered** by continent and week
         - BigQuery dataset `dbt_earthquake` (where will be located the tables with data transformed by dbt)
 
+    BigQuery should look like this:
+    <img src="images/bigquery_schema.png.png" height="100">
+
 > For more information check [instructions](https://github.com/DarynaP/dez-project-earthquakes#terraform)
