@@ -28,3 +28,9 @@ variable "bq_dataset" {
   default = "bq_earthquake_data" #change to your BigQuery name
 }
 
+variable "bdt" {
+  description = "BigQuery Dataset that data will be written to"
+  type = string
+  default = "dbt_earthquake" #change to your BigQuery name
+}
+
