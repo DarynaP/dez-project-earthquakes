@@ -110,12 +110,12 @@ The diagram below contains detailed information:
 ## Conclusions
 
 ## Reproducibility 
-You may replicate the project pipeline by following the steps in this tutorial.
+This project pipeline can be replicated by following the steps in this tutorial.
 
 ### Google Cloud Platform
-You need to have a GCP account. If you don't have one yet, you can create and use a free trial. After creating an account:
-1. Setup new project and give it an unique Project ID.
-2. Configure service account to get access to this project. 
+GCP account is required. If you don't have one yet, you can create and use a free trial. After creating an account:
+  1. Setup new project and give it an unique Project ID.
+  2. Configure service account to get access to this project. 
 Go to IAM & Admin > Service Accounts > Click on + CREATE SERVICE ACCOUNT > Give a name and an service account ID > Grant this service account access to project, namely as:
   - Viewer
   - Storage Admin
@@ -124,15 +124,15 @@ Go to IAM & Admin > Service Accounts > Click on + CREATE SERVICE ACCOUNT > Give 
 
 After the service account is created go to Actions > Manage Keys > ADD KEY > Create new key > Save it as JSON file
 <br>
-3. For the local setup of GCP download [SDK](https://cloud.google.com/sdk)
+  3. For the local setup of GCP download [SDK](https://cloud.google.com/sdk)
 <br>
-4. Set environment variable to your downloaded GCP key:
+  4. Set environment variable to your downloaded GCP key:
 ```bash
 export GOOGLE_APPLICATION_CREDENTIALS="<path/to/your/service-account-authkeys>.json"
 gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 ```
 <br>
-5. Enable the following options under the APIs and services section:
+  5. Enable the following options under the APIs and services section:
 
   - [Identity and Access Management (IAM) API](https://console.cloud.google.com/apis/library/iam.googleapis.com) 
   - [IAM service account credentials API](https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com)
@@ -141,10 +141,10 @@ gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
   - [Artifact Registry API](https://console.cloud.google.com/apis/library/artifactregistry.googleapis.com)
 
   
-For more information you can follow this [tutorial](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3&ab_channel=DataTalksClub%E2%AC%9B)
+For more information follow this [tutorial](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3&ab_channel=DataTalksClub%E2%AC%9B)
 
 ### Terraform 
-We will use Terraform to build and manage GCP infrastructure. Terraform configuration files are located in the [terraform folder](terraform), there you can find the detailed information about the files:
+Terraform was used to build and manage GCP infrastructure. Terraform configuration files are located in the [terraform folder](terraform), there can be found the detailed information about the files:
 - [variables.tf](terraform/variables.tf) - contains variables to make your configuration more reproducible;
 - [main.tf](terraform/main.tf) - is a key configuration file consisting of several sections;
 - [table1_schema.json](terraform/table1_schema.json) - contain the JSON schema for the Data Warehouse table.
@@ -152,10 +152,10 @@ We will use Terraform to build and manage GCP infrastructure. Terraform configur
 > **Important** if you want to change the names of *project, bucket, dataset ...*, don't forget to replace them in the files!
 
 
-Now you can use the steps below to generate resources inside the GCP:
+The steps below can be used to generate resources inside the GCP:
 1. Move to the [terraform folder](terraform) using bash command `cd`.
 2. Run `terraform init` command to initialize the configuration.
 3. Use `terraform plan` to match previews local changes against a remote state.  
 4. Apply changes to the cloud with `terraform apply` command, you will need to write `yes` to confirm that you want to proceed with this task.
 
-> To remove your stack from the Cloud, use the `terraform destroy` command.
+> To remove stack from the Cloud, use the `terraform destroy` command.
