@@ -20,16 +20,15 @@ This file was used to define some of the variables:
 
 This file was used to set:
  - Data Lake:
-        - Bucket named `earthquake-data-dez` (where are loaded parquet files from API)
- - Data Warehouse: 
-        - BigQuery dataset `bq_earthquake_data`:
+    - Bucket named `earthquake-data-dez` (where are loaded parquet files from API)
+ - Data Warehouse:
+    - BigQuery dataset `bq_earthquake_data`:
          - table `earthquake_info` (used to load data from the bucket `earthquake-data-dez`)
-                - the schema for this table is specified in the [JSON file](earthquake_info_schema.json)
-                - data loaded in this table is **partitioned** by day, and **clustered** by continent and week
+            - the schema for this table is specified in the [JSON file](earthquake_info_schema.json)
+            - data loaded in this table is **partitioned** by day, and **clustered** by continent and week
         - BigQuery dataset `dbt_earthquake` (where will be located the tables with data transformed by dbt)
 
-
-BigQuery should look like this:
-<img src="bigquery_schema.png" height="100">
+    BigQuery should look like this:
+    <img src="bigquery_schema.png" height="100">
 
 > For more information check [instructions](https://github.com/DarynaP/dez-project-earthquakes#terraform)
