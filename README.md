@@ -18,10 +18,13 @@ The goal of this project was to build an end-to-end data pipeline, with a focus 
         <li><a href="#dataset-used">Dataset used</a></li>
         <li><a href="#technologies">Technologies</a></li>
         <li><a href="#project-architecture">Project architecture</a></li>
+    <li>   
       <a href="#dashboard">Dashboard</a>
+    <li>
       <a href="#conclusions">Conclusions</a>
+    <li>
       <a href="#reproducibility">Reproducibility</a>
-      </ol>
+  </ol>
 </details>
 
 ## About the Project
