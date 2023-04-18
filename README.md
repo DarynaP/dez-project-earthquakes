@@ -218,18 +218,23 @@ gcloud artifacts repositories create prefect-flows-docker \
 ```
 10. Build the Docker Image
 <br>
+
 `docker build -t <INSERT_REGISTRY_ADDRESS>/ram-api-flow:2.7.7-python3.8 . `
 <br>
+
 `gcloud auth configure-docker <YOUR ZONE>-docker.pkg.dev` 
 <br>
+
 `docker push <INSERT_REGISTRY_ADDRESS>/ram-api-flow:2.7.7-python3.8`
 
 11. Create Cloud Run Block 
 `python prefect/blocks/cloudrun_block.py`
 12. Create two deployments using Cloud Run Infrastructure
 <br>
+
 `python prefect/deployments/bq_deploy.py`
 <br>
+
 `python prefect/deployments/gcs_deploy.py`
 
 
