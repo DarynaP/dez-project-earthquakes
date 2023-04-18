@@ -102,9 +102,11 @@ The final dashboard was created using Power BI, for a more interactive view of t
 ## Conclusions
 
 When we talk about earthquakes, it is important to note that they are a natural occurrence that happens all around the world. 
+<br>
 While the number of earthquakes per day may seem high, the data showed that between 200 and 300 earthquakes occur every day, it is important to note that most of these earthquakes are small and go unnoticed by people (low magnitude - alert green).
 Regarding the localization of the earthquakes, it wasn't surprising since the majority of them occurred close to the limits of the tectonic plates. The tectonic plates are constantly moving, sliding past each other or colliding, and sometimes this movement results in an earthquake.
 Some of the most active known lines in the world include the San Andreas Fault in California, the Ring of Fire in the Pacific Ocean, the Himalayan Front in Asia,and Cascadia Subduction Zone along the West Coast of North America,which can be observed in the map. 
+<br>
 When we look at the distribution of earthquakes around the world, it is not surprising to learn that around 50% of earthquakes occur in the ocean. This is because a large portion of the Earth's surface is covered by oceans, and many of the world's most active fault lines are located beneath the ocean floor. After the ocean, North America is the continent that experiences the most seismic activity, with several major fault lines located in the region (mentioned above).
 
 
