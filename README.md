@@ -249,5 +249,5 @@ Note that:
 * you need to check that BigQuery already has areas (datasets) for staging and production dbt models
 
 
-
+<p align="right">(<a href="#table-of-contents">back to table of contents</a>)</p>
 
