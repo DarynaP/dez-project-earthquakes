@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+    - name: staging
+      database: dez-project-earthquakes
+      schema: bq_earthquake_data
+
+      tables:
+        - name: earthquake_info
