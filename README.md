@@ -243,5 +243,17 @@ This will create two deployments, the first one runs every sunday to get the dat
 ![](images/prefect_deploy.png)
 
 
+### dbt
+dbt was used [dbt](https://www.getdbt.com/) for data transformation in DWH for further analytics dashboard development.
+
+First you will need to create a dbt Cloud account (if you don't already have one) using [this link](https://www.getdbt.com/signup/) 
+and connect to your BigQuery by following [these instructions](https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth).
+You can find more detailed instructions [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md).
+
+Note that:
+* you can fork or copy an existing dbt project located in the [separate folder](dbt) and use a link to the forked/copied version if necessary; 
+* you need to check that BigQuery already has areas (datasets) for staging and production dbt models
+
+
 
 
