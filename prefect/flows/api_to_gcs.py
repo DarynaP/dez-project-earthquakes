@@ -12,7 +12,7 @@ def fetch_data(url: str) -> dict:
     '''
     Get the data from the api and return it as dict format
     '''
-    headers = {"X-RapidAPI-Key": "insert your personal key here",
+    headers = {"X-RapidAPI-Key": "6d15e169famsh14ec07b2b3145d2p1f0eddjsnf6010e34a528",
     "X-RapidAPI-Host": "everyearthquake.p.rapidapi.com"}
 
     response_dict = requests.get(url, headers=headers).json()

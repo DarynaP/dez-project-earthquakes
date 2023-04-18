@@ -1,0 +1,59 @@
+[
+    {"name": "id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+    },
+    {"name": "magnitude",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+    },
+    {"name": "felt",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+    },
+    {"name": "depth",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+    },
+    {"name": "latitude",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+    },
+    {"name": "longitude",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+    },
+    {"name": "distanceKM",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+    },
+    {"name": "date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+    },
+    {"name": "year",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+    },
+    {"name": "week",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+    },
+    {"name": "country",
+    "type": "STRING",
+    "mode": "NULLABLE"
+    },
+    {"name": "city",
+    "type": "STRING",
+    "mode": "NULLABLE"
+    },
+    {"name": "locality",
+    "type": "STRING",
+    "mode": "NULLABLE"
+    },
+    {"name": "continent",
+    "type": "STRING",
+    "mode": "NULLABLE"
+    }
+]
+

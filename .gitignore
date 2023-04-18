@@ -167,6 +167,7 @@ terraform.rc
 #File with my service account credentials
 dez-project-earthquakes-791c1355c759.json
 
+<<<<<<< HEAD
 # Default .gitignore content added by dbt Cloud
 target/
 dbt_packages/
@@ -184,3 +185,7 @@ target/
 dbt_packages/
 logs/
 # end dbt Cloud content
+=======
+
+
+>>>>>>> 7ad753550d71c47411aa76aeb7dfa61c146a35d0

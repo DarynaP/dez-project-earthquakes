@@ -47,7 +47,7 @@ resource "google_bigquery_dataset" "data-earthquake" {
   project    = var.project
   location   = var.region
 }
-
+#
 resource "google_bigquery_table" "default" {
   dataset_id = google_bigquery_dataset.data-earthquake.dataset_id
   table_id   = "earthquake_info"
@@ -59,7 +59,7 @@ resource "google_bigquery_table" "default" {
 
   clustering = ["continent", "week"]
 
-  schema = file("/home/darynap/dez-project-earthquakes/terraform/table1_schema.json")
+  schema = file("/home/darynap/dez-project-earthquakes/terraform/earthquake_info_schema.json")
 
   deletion_protection=false
 }

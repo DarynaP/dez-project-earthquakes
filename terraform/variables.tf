@@ -28,3 +28,4 @@ variable "bq_dataset" {
   default = "bq_earthquake_data" #change to your BigQuery name
 }
 
+
