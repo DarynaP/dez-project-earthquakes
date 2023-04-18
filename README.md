@@ -164,6 +164,72 @@ The steps below can be used to generate resources inside the GCP:
 > To remove stack from the Cloud, use the `terraform destroy` command.
 
 ### Prefect
-Prefect cloud was used 
+Prefect cloud was used for workflow orchestration. In order to run the created flow in a serverless  way  Google Compute Engine was set as the agent for the run and an execution environment was created using Google Cloud Run.
+
+For more details you can check this amazing [tutorial](https://medium.com/@danilo.drobac/7-a-complete-google-cloud-deployment-of-prefect-2-0-32b8e3c2febe).
+
+1. Login to your Prefect Cloud `prefect cloud login`
+2. Create the needed blocks `python prefect/blocks/gcp_blocks.py`
+3. Configure VM for Agent
+```bash
+gcloud compute instances create prefect-agent \
+    --image=ubuntu-2004-focal-v20230104 \
+    --image-project=ubuntu-os-cloud \
+    --machine-type=e2-micro \
+    --zone=<YOUR ZONE> \
+    --service-account=prefect@PROJECT_ID.iam.gserviceaccount.com
+```
+4. SSH into the VM using `gcloud compute ssh prefect-agent`
+5. Create a new file called install_script.sh by typing: `nano install_script.sh`
+6. Copy in the following contents, replacing <INSERT_PREFECT_API_KEY> with the Prefect API key
+```bash
+#!/bin/bash
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install -y \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release \
+    software-properties-common \
+    python3-dateutil
+sudo ln -s /usr/bin/python3 /usr/bin/python
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+PATH="$HOME/.local/bin:$PATH"
+export PATH
+pip3 install prefect prefect-gcp
+prefect cloud login -k <INSERT_PREFECT_API_KEY>
+```
+7. Make the file executable (+x) by running: `sudo chmod +x install_script.sh`
+8. Execute the file and run all of our commands within: `./install_script.sh`
+9. The last thing we need to do is start the agent for the main queue
+```bash
+tmux
+prefect agent start -q main
+```
+press Ctrl/Cmd + b + d to exit the session
+9. Create Artifact Registry
+```bash
+gcloud artifacts repositories create prefect-flows-docker \
+  --repository-format=docker \
+  --location= <YOUR ZONE> \
+  --description="Docker repository for Prefect Flows"
+```
+10. Build the Docker Image
+`docker build -t <INSERT_REGISTRY_ADDRESS>/ram-api-flow:2.7.7-python3.8 . `
+`gcloud auth configure-docker <YOUR ZONE>-docker.pkg.dev` 
+`docker push <INSERT_REGISTRY_ADDRESS>/ram-api-flow:2.7.7-python3.8`
+11. Create Cloud Run Block 
+`python prefect/blocks/cloudrun_block.py`
+12. Create two deployments using Cloud Run Infrastructure
+`python prefect/deployments/bq_deploy.py`
+`python prefect/deployments/gcs_deploy.py`
+
+This will create two deployments, the first one runs every sunday to get the data from API and load to GCP Bucket, the second runs every sunday and gest the data from the bucket, transforms it and then load to BigQuery table. 
+
+![](images/prefect_deploy.png)
+
+
 
 
