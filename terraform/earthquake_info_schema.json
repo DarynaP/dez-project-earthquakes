@@ -7,44 +7,8 @@
     "type": "FLOAT",
     "mode": "NULLABLE"
     },
-    {"name": "type",
-    "type": "STRING",
-    "mode": "NULLABLE"
-    },
     {"name": "felt",
     "type": "INTEGER",
-    "mode": "NULLABLE"
-    },
-    {"name": "cdi",
-    "type": "FLOAT",
-    "mode": "NULLABLE"
-    },
-    {"name": "mmi",
-    "type": "FLOAT",
-    "mode": "NULLABLE"
-    },
-    {"name": "alert",
-    "type": "STRING",
-    "mode": "NULLABLE"
-    },
-    {"name": "status",
-    "type": "STRING",
-    "mode": "NULLABLE"
-    },
-    {"name": "tsunami",
-    "type": "INTEGER",
-    "mode": "NULLABLE"
-    },
-    {"name": "sig",
-    "type": "INTEGER",
-    "mode": "NULLABLE"
-    },
-    {"name": "ids",
-    "type": "STRING",
-    "mode": "NULLABLE"
-    },
-    {"name": "gap",
-    "type": "FLOAT",
     "mode": "NULLABLE"
     },
     {"name": "depth",
@@ -63,19 +27,19 @@
     "type": "FLOAT",
     "mode": "NULLABLE"
     },
-    {"name": "location",
-    "type": "STRING",
+    {"name": "date",
+    "type": "DATE",
     "mode": "NULLABLE"
     },
-    {"name": "continent",
-    "type": "STRING",
+    {"name": "year",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+    },
+    {"name": "week",
+    "type": "INTEGER",
     "mode": "NULLABLE"
     },
     {"name": "country",
-    "type": "STRING",
-    "mode": "NULLABLE"
-    },
-    {"name": "subnational",
     "type": "STRING",
     "mode": "NULLABLE"
     },
@@ -87,16 +51,8 @@
     "type": "STRING",
     "mode": "NULLABLE"
     },
-    {"name": "date",
-    "type": "DATETIME",
-    "mode": "NULLABLE"
-    },
-    {"name": "year",
-    "type": "INTEGER",
-    "mode": "NULLABLE"
-    },
-    {"name": "week",
-    "type": "INTEGER",
+    {"name": "continent",
+    "type": "STRING",
     "mode": "NULLABLE"
     }
 ]

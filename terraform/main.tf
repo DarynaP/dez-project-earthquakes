@@ -63,9 +63,3 @@ resource "google_bigquery_table" "default" {
 
   deletion_protection=false
 }
-#
-resource "google_bigquery_dataset" "dbt-earthquake" {
-  dataset_id = var.dbt
-  project    = var.project
-  location   = var.region
-}
