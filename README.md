@@ -33,7 +33,7 @@ Earthquake data is a valuable resource for public safety, and this project aims 
 
 
 ### Dataset used
-The data of was collected using [EveryEarthquake API](https://rapidapi.com/dbarkman/api/everyearthquake/), additionally the data obtained between January and April 2023 can be found in the folder [`earthquake-data`](earthquake-data) as parquet files (per week).
+The data was collected using [EveryEarthquake API](https://rapidapi.com/dbarkman/api/everyearthquake/), additionally the data obtained between January and April 2023 can be found in the folder [`earthquake-data`](earthquake-data) as parquet files (per week).
 To use this API you need to have a **X-RapidAPI-Key**, to obtain your key you first need to create an account, more information can be obtained [here](https://docs.rapidapi.com/docs/keys).
 
 The complete information about the dataset can be found at [ANSS Comprehensive Earthquake Catalog](https://earthquake.usgs.gov/data/comcat).
@@ -97,11 +97,15 @@ The final dashboard was created using Power BI, for a more interactive view of t
 
 When we talk about earthquakes, it is important to note that they are a natural occurrence that happens all around the world. 
 <br>
-While the number of earthquakes per day may seem high, the data showed that between 200 and 300 earthquakes occur every day, it is important to note that most of these earthquakes are small and go unnoticed by people (low magnitude - alert green).
-Regarding the localization of the earthquakes, it wasn't surprising since the majority of them occurred close to the limits of the tectonic plates. The tectonic plates are constantly moving, sliding past each other or colliding, and sometimes this movement results in an earthquake.
-Some of the most active known lines in the world include the San Andreas Fault in California, the Ring of Fire in the Pacific Ocean, the Himalayan Front in Asia,and Cascadia Subduction Zone along the West Coast of North America,which can be observed in the map. 
+
+While the number of earthquakes per day may seem high, the data showed that **between 200 and 300 earthquakes** occur every day, it is important to note that most of these earthquakes are small and go unnoticed by people (low magnitude - alert green).
 <br>
-When we look at the distribution of earthquakes around the world, it is not surprising to learn that around 50% of earthquakes occur in the ocean. This is because a large portion of the Earth's surface is covered by oceans, and many of the world's most active fault lines are located beneath the ocean floor. After the ocean, North America is the continent that experiences the most seismic activity, with several major fault lines located in the region (mentioned above).
+
+Regarding the localization of the earthquakes, it wasn't surprising since the **majority of them occurred close to the limits of the tectonic plates**. The tectonic plates are constantly moving, sliding past each other or colliding, and sometimes this movement results in an earthquake.
+Some of the most active known lines in the world include the San Andreas Fault in California, the Ring of Fire in the Pacific Ocean, the Himalayan Front in Asia,and Cascadia Subduction Zone along the West Coast of North America, which can be observed in the map. 
+<br>
+
+When we look at the distribution of earthquakes around the world, it is not surprising to learn that **around 50% of earthquakes occur in the ocean**. This is because a large portion of the Earth's surface is covered by oceans, and many of the world's most active fault lines are located beneath the ocean floor. After the ocean, North America is the continent that experiences the most seismic activity, and that can be explained by the  major fault lines located in that region (already mentioned above).
 
 
 ## Reproducibility 
@@ -197,6 +201,7 @@ prefect cloud login -k <INSERT_PREFECT_API_KEY>
 ```
 7. Make the file executable (+x) by running: `sudo chmod +x install_script.sh`
 8. Execute the file and run all of our commands within: `./install_script.sh`
+
 9. The last thing we need to do is start the agent for the main queue
 ```bash
 tmux
@@ -238,7 +243,7 @@ This will create two deployments, the first one runs every sunday to get the dat
 
 
 ### dbt
-dbt was used [dbt](https://www.getdbt.com/) for data transformation in DWH for further analytics dashboard development.
+[dbt](https://www.getdbt.com/) was used for data transformation in DWH for further analytics dashboard development.
 
 First you will need to create a dbt Cloud account (if you don't already have one) using [this link](https://www.getdbt.com/signup/) 
 and connect to your BigQuery by following [these instructions](https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth).

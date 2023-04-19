@@ -1,2 +1,1 @@
 The data fetched directly from *EveryEarthquake API* had unnecessary information that was removed during Prefect flow to fetch data [`api_to_gcs.py`](prefect/flows), additionally, the dataset needed some initial cleaning that was taken care during the second Prefect flow to load data into Big Query [`gcs_to_bq.py`](prefect/flows). 
-For mode information check the notebook [`api_data_exploration.ipynb`](api_data_exploration.ipynb).
