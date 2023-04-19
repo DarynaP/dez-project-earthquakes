@@ -203,19 +203,23 @@ prefect cloud login -k <INSERT_PREFECT_API_KEY>
 8. Execute the file and run all of our commands within: `./install_script.sh`
 
 9. The last thing we need to do is start the agent for the main queue
-```bash
-tmux
-prefect agent start -q main
-```
+
+`tmux`
+<br>
+
+`prefect agent start -q main`
+
 press Ctrl/Cmd + b + d to exit the session
-9. Create Artifact Registry
+<br>
+
+10. Create Artifact Registry
 ```bash
 gcloud artifacts repositories create prefect-flows-docker \
   --repository-format=docker \
   --location= <YOUR ZONE> \
   --description="Docker repository for Prefect Flows"
 ```
-10. Build the Docker Image
+11. Build the Docker Image
 <br>
 
 `docker build -t <INSERT_REGISTRY_ADDRESS>/ram-api-flow:2.7.7-python3.8 . `
@@ -226,9 +230,9 @@ gcloud artifacts repositories create prefect-flows-docker \
 
 `docker push <INSERT_REGISTRY_ADDRESS>/ram-api-flow:2.7.7-python3.8`
 
-11. Create Cloud Run Block 
+12. Create Cloud Run Block 
 `python prefect/blocks/cloudrun_block.py`
-12. Create two deployments using Cloud Run Infrastructure
+13. Create two deployments using Cloud Run Infrastructure
 <br>
 
 `python prefect/deployments/bq_deploy.py`
